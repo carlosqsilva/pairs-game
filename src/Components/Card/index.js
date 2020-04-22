@@ -8,7 +8,7 @@ export function Card({ top, left, content, flipped, onClick }) {
   return (
     <div
       onClick={onClick}
-      className={cx(s.card, { flipped })}
+      className={cx(s.card, { card: flipped })}
       style={{
         top,
         left,

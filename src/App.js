@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect, useCallback } from "react";
 
 import { Card } from "./Components/Card";
 
@@ -7,7 +7,7 @@ import { createCardDeck } from "./Utils/card";
 
 const CARDS = 32;
 
-const InitialState = { cards: [], previousSelection: null, hasMatch: false };
+const InitialState = { cards: [], previousCard: null, hasMatch: false };
 
 function reducer(state, action) {
   switch (action.type) {
@@ -42,6 +42,24 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, InitialState);
+
+  const selectCard = useCallback(
+    (cardIdx) => {
+      const card = state.cards[cardIdx];
+
+      if (!previousCard) {
+        dispatch({ type: "select", payload: cardIdx });
+      } else if (card.uuid === previousCard.uuid) {
+        dispatch({ type: "select", payload: cardIdx });
+
+        setTimeout(() => {
+          dispatch({ type: "match", payload: card.uuid });
+        }, 500);
+      } else {
+      }
+    },
+    [state, dispatch]
+  );
 
   return (
     <div style={{ minHeight: "100vh" }}>
