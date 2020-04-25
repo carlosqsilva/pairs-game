@@ -1,4 +1,4 @@
-export const cx = (...args) => {
+export const cx = (...args: any) => {
   const classes = [];
 
   for (const value of args) {

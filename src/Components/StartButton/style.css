@@ -1,0 +1,28 @@
+.start_button {
+  font-family: "Raleway";
+  font-size: 2em;
+
+  cursor: pointer;
+  outline: none;
+
+  padding: 10px 20px 10px 20px;
+  margin: 10px 20px 10px 20px;
+
+  background: #ffffff;
+  border: solid #000000 2px;
+  color: #000000;
+
+  border-radius: 7px;
+  box-shadow: -5px 5px 0px #000000;
+
+  transition: all 100ms ease-in;
+}
+
+.start_button:active {
+  transform: translate(-4px, 4px);
+  box-shadow: -1px 1px 0px #000000;
+}
+
+.start_button:focus {
+  background: #eee;
+}
