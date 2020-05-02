@@ -7,5 +7,5 @@ export function useUpdateOnResize(fn: () => void, deps: any) {
     return () => {
       window.removeEventListener("resize", fn);
     };
-  }, [deps]);
+  }, [deps, fn]);
 }
